@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Mã hóa Cổ điển</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Các phương pháp mã hóa cổ điển</h1>
+    
+    <label for="algo">Chọn thuật toán:</label>
+    <select id="algo" onchange="showHint()">
+      <option value="caesar">Caesar</option>
+      <option value="affine">Affine</option>
+      <option value="permutation">Hoán vị</option>
+      <option value="vigenere">Vigenère</option>
+      <option value="playfair">Playfair</option>
+    </select>
+
+    <label for="key">Khóa:</label>
+    <input type="text" id="key" placeholder="Nhập khóa">
+    <small id="hint">Ví dụ khóa: Caesar = số nguyên (3)</small>
+
+    <label for="inputText">Văn bản gốc:</label>
+    <textarea id="inputText" placeholder="Nhập văn bản..."></textarea>
+
+    <div class="buttons">
+      <button onclick="encrypt()">Mã hóa</button>
+      <button onclick="decrypt()">Giải mã</button>
+      <button onclick="resetForm()" class="reset">Reset</button>
+    </div>
+
+    <label for="outputText">Kết quả:</label>
+    <textarea id="outputText" readonly></textarea>
+
+    <div class="buttons">
+      <button onclick="copyResult()" class="copy">Copy kết quả</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

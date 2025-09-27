@@ -1,0 +1,88 @@
+body {
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: linear-gradient(135deg, #8c53c1, #7e89ba);
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  width: 420px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+select, input, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+textarea {
+  height: 80px;
+  resize: none;
+}
+
+small {
+  display: block;
+  color: #666;
+  margin-top: 4px;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+}
+
+button {
+  flex: 1;
+  padding: 10px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  background: #17609f;
+  color: white;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #00c6ff;
+}
+
+button.reset {
+  background: #f76c6c;
+}
+button.reset:hover {
+  background: #ff4b4b;
+}
+
+button.copy {
+  background: #43cea2;
+}
+button.copy:hover {
+  background: #185a9d;
+}
