@@ -7,17 +7,17 @@ Caesar cipher — đặt theo tên Julius Caesar, phương pháp dịch chữ th
 
 #### Thuật toán
 
-Mã hoá: với mỗi ký tự chữ cái c (A–Z hoặc a–z), đưa về 0..25 rồi tính:
+- Mã hoá: với mỗi ký tự chữ cái c (A–Z hoặc a–z), đưa về 0..25 rồi tính:
 E(c) = (c_index + k) mod 26
 (với k là khoá số, dịch bao nhiêu vị trí).
 
-Giải mã:
+- Giải mã:
 D(C) = (C_index - k + 26) mod 26
 (hoặc E(..., 26 - k)).
 
 #### Không gian khoá
 
-k ∈ {0,1,...,25}. Kích thước khoá: 26 khả năng (thực tế chỉ 25 khác nhau nếu coi k=0 là vô hiệu).
+- k ∈ {0,1,...,25}. Kích thước khoá: 26 khả năng (thực tế chỉ 25 khác nhau nếu coi k=0 là vô hiệu).
 
 #### Cách phá (không cần khoá)
 
@@ -35,9 +35,9 @@ Affine cipher — là một dạng biến đổi affine tuyến tính trên trư
 
 - Với mỗi ký tự x (0..25), khoá gồm hai số a và b (a phải nghịch đảo modulo 26):
 
- Mã hoá: E(x) = (a * x + b) mod 26
+   - Mã hoá: E(x) = (a * x + b) mod 26
 
- Giải mã: cần a_inv = a^(-1) mod 26, rồi D(y) = a_inv * (y - b) mod 26.
+   - Giải mã: cần a_inv = a^(-1) mod 26, rồi D(y) = a_inv * (y - b) mod 26.
 
 - Ràng buộc
 
@@ -65,13 +65,13 @@ Hoán vị (Columnar transposition, block permutation…) — giữ nguyên ký 
 
 Chia plaintext thành khối độ dài n (padding nếu cần). Khoá là một hoán vị P của n chỉ số (ví dụ [2,0,1] nghĩa vị trí 0 → 2, 1 → 0, 2 → 1).
 
-Mã hoá: với mỗi khối B[0..n-1], tạo C[j] = B[P[j]].
+- Mã hoá: với mỗi khối B[0..n-1], tạo C[j] = B[P[j]].
 
-Giải mã: dùng hoán vị nghịch P_inv để đảo lại: B[P[j]] = C[j] hoặc B[j] = C[P_inv[j]].
+- Giải mã: dùng hoán vị nghịch P_inv để đảo lại: B[P[j]] = C[j] hoặc B[j] = C[P_inv[j]].
 
 #### Không gian khoá
 
-Độ dài khoá n → số hoán vị = n!. (Ví dụ n=8 thì 8! = 40320; n=10 thì 10! ≈ 3.6M)
+- Độ dài khoá n → số hoán vị = n!. (Ví dụ n=8 thì 8! = 40320; n=10 thì 10! ≈ 3.6M)
 
 #### Cách phá (không cần khoá)
 
@@ -91,16 +91,16 @@ Vigenère cipher — mã hoá bằng bảng Vigenère; gọi là polyalphabetic 
 
 #### Thuật toán
 
-Khoá là chuỗi ký tự K (ký tự chữ, độ dài L). Lặp khoá dọc theo plaintext.
+- Khoá là chuỗi ký tự K (ký tự chữ, độ dài L). Lặp khoá dọc theo plaintext.
 
-Mỗi ký tự plaintext P_i (0..25) được mã hoá:
+- Mỗi ký tự plaintext P_i (0..25) được mã hoá:
 E(P_i) = (P_i + K_{i mod L}) mod 26 (với K_j là giá trị 0..25 tương ứng ký tự khoá).
 
-Giải mã: D(C_i) = (C_i - K_{i mod L} + 26) mod 26.
+- Giải mã: D(C_i) = (C_i - K_{i mod L} + 26) mod 26.
 
 #### Không gian khoá
 
-Với khoá chiều dài L, số khoá = 26^L. Nếu L không giới hạn, khoá không gian lớn; thực tế người dùng thường chọn L nhỏ → dễ tấn công.
+- Với khoá chiều dài L, số khoá = 26^L. Nếu L không giới hạn, khoá không gian lớn; thực tế người dùng thường chọn L nhỏ → dễ tấn công.
 
 #### Cách phá (không cần khoá)
 
@@ -116,4 +116,46 @@ Kasiski + frequency analysis là phương pháp cổ điển và hiệu quả.
 
 ### Kết luận: dễ bị phá nếu khoá ngắn hoặc có ciphertext dài; nếu khoá dài và ngẫu nhiên (one-time pad) thì an toàn.
 _____
-### 5.
+### 5.Playfair cipher
+#### Tên gọi
+Playfair cipher — mã hoá theo cặp ký tự (digraph), dùng bảng 5×5 sinh từ khoá.
+
+#### Thuật toán (phổ biến nhất, J ≡ I)
+
+- Tạo ma trận 5×5 từ khóa (loại bỏ chữ trùng, nối phần còn lại của bảng chữ cái, thường gộp J với I).
+
+- Chuẩn hoá plaintext:
+
+  - Loại bỏ ký tự không phải chữ (tuỳ biến),
+
+  - Viết chữ thường, thay j bằng i,
+
+  - Chia thành digraphs (cặp). Nếu trong một cặp hai chữ giống nhau, chèn x giữa (hoặc chữ khác) rồi tiếp tục. Nếu cuối cùng còn 1 ký tự, padding x.
+
+- Mã hoá một cặp (A,B): tìm vị trí (r1,c1) và (r2,c2) trong ma trận:
+
+  - Nếu cùng hàng: thay bằng ký tự bên phải (vòng lại).
+
+  - Nếu cùng cột: thay bằng ký tự bên dưới (vòng lại).
+
+  - Nếu khác hàng và cột: thay bằng hai ký tự ở các góc của chữ nhật (r1,c2) và (r2,c1).
+
+- Giải mã: quy tắc ngược (trái / trên / hoán chéo).
+
+#### Không gian khoá
+
+- Ma trận là một sắp xếp của 25 chữ cái (J bị loại) → số ma trận = 25! ≈ 1.5511210043 × 10^25. (Rất lớn)
+
+- Lưu ý: một số ma trận có thể tạo cùng ánh xạ do cách chuẩn hoá, nhưng độ lớn vẫn cực kỳ lớn.
+
+#### Cách phá (không cần khoá)
+
+Không phải substitution đơn ký tự, Playfair bảo vệ chống phân tích tần suất một-chữ. Tuy nhiên:
+
+Phân tích digraph (cặp chữ): tần suất bigram không đồng đều; có thể dùng thống kê digram để tìm ma trận gần đúng.
+
+Chiến lược heuristic / hill-climbing: dùng hàm mục tiêu dựa trên xác suất n-gram (bigram/trigram/quadgram) và tối ưu hoán vị ma trận (hoán đổi 2 chữ cái, đánh giá score); phương pháp này thường phá được Playfair với ciphertext đủ dài.
+
+Known-plaintext / crib: nếu biết một đoạn plaintext tương ứng, dễ suy ma trận.
+
+### Kết luận: mạnh hơn các substitution đơn, nhưng vẫn có thể phá bằng search heuristics khi ciphertext đủ dài.
