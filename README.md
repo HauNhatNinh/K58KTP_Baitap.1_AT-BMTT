@@ -26,6 +26,12 @@ Brute force: thử 25 hoán vị — cực nhanh.
 Phân tích tần suất: kiểm tra xem dịch nào làm cho phân bố chữ cái giống tiếng nguồn (ví dụ chữ 'E' phổ biến trong tiếng Anh).
 
 ### Kết luận: rất yếu, dễ phá bằng tay hoặc script.
+##### Mã hóa và giải mã Caesar bằng html+css+javascript
+<img width="1042" height="730" alt="image" src="https://github.com/user-attachments/assets/580231f0-650c-4778-b4b7-f145595fd0e9" />
+
+##### Mã hóa và giải mã Caesar bằng C++
+<img width="271" height="606" alt="image" src="https://github.com/user-attachments/assets/455999df-966f-44bd-b98f-6d01d4b5d861" />
+
 _____
 ### 2.Affine cipher
 #### Tên gọi
@@ -56,6 +62,12 @@ Phân tích tần suất: chuyển đổi affine là ánh xạ một-chữ sang 
 Known-plaintext hay cribs (đoán một từ) sẽ nhanh tìm (a,b).
 
 ### Kết luận: yếu trước brute-force và phân tích tần suất.
+##### Mã hóa và giải mã Affine cipher bằng html+css+javascript
+<img width="1104" height="812" alt="image" src="https://github.com/user-attachments/assets/6a187565-3921-4ca5-a6d0-bf5e8ca51b1c" />
+
+##### Mã hóa và giải mã Affine cipher bằng C++
+<img width="367" height="611" alt="image" src="https://github.com/user-attachments/assets/13b94da7-f68f-4e32-94b3-3d81804306dd" />
+
 _____
 ### 3.Hoán vị (Transposition / Permutation cipher)
 #### Tên gọi
@@ -84,6 +96,11 @@ Chuẩn hoá dòng/cột (columnar): với columnar transposition, người ta t
 Heuristics và search (hill-climbing / simulated annealing): dùng hàm mục tiêu dựa trên xác suất n-gram (bi-gram, tri-gram) để tối ưu hoán vị. Đây là cách thường dùng cho hoán vị dài.
 
 ### Kết luận: khó hơn substitution, nhưng với tính toán hiện đại và heuristics có thể phá được nếu văn bản dài.
+##### Mã hóa và giải mã Hoán vị (Transposition / Permutation cipher) bằng html+css+javascript
+<img width="1095" height="802" alt="image" src="https://github.com/user-attachments/assets/d2c82716-918c-46f1-8709-a65306ca5329" />
+
+##### Mã hóa và giải mã Hoán vị (Transposition / Permutation cipher) bằng C++
+- Đang lỗi, cần sửa.
 _____
 ### 4.Vigenère cipher
 #### Tên gọi
@@ -115,6 +132,11 @@ Brute force: nếu L nhỏ, thử tất cả 26^L.
 Kasiski + frequency analysis là phương pháp cổ điển và hiệu quả.
 
 ### Kết luận: dễ bị phá nếu khoá ngắn hoặc có ciphertext dài; nếu khoá dài và ngẫu nhiên (one-time pad) thì an toàn.
+##### Mã hóa và giải mã Vigenère cipher bằng html+css+javascript
+<img width="1112" height="804" alt="image" src="https://github.com/user-attachments/assets/8426aa58-f76f-4094-a32f-95128c3e2465" />
+
+##### Mã hóa và giải mã Vigenère cipher bằng C++
+<img width="283" height="598" alt="image" src="https://github.com/user-attachments/assets/9c8158ac-db61-416d-b0d9-3f1d86464822" />
 _____
 ### 5.Playfair cipher
 #### Tên gọi
@@ -159,3 +181,9 @@ Chiến lược heuristic / hill-climbing: dùng hàm mục tiêu dựa trên x�
 Known-plaintext / crib: nếu biết một đoạn plaintext tương ứng, dễ suy ma trận.
 
 ### Kết luận: mạnh hơn các substitution đơn, nhưng vẫn có thể phá bằng search heuristics khi ciphertext đủ dài.
+##### Mã hóa và giải mã Playfair cipher bằng html+css+javascript
+<img width="1108" height="792" alt="image" src="https://github.com/user-attachments/assets/990c94f3-e9c8-4459-9fe0-d9d10a71994c" />
+
+##### Mã hóa và giải mã Playfair cipher bằng C++
+<img width="289" height="608" alt="image" src="https://github.com/user-attachments/assets/0beec1ab-9d06-423e-811e-bd235b97a30c" />
+
