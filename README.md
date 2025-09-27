@@ -187,3 +187,15 @@ Known-plaintext / crib: nếu biết một đoạn plaintext tương ứng, dễ
 ##### Mã hóa và giải mã Playfair cipher bằng C++
 <img width="289" height="608" alt="image" src="https://github.com/user-attachments/assets/0beec1ab-9d06-423e-811e-bd235b97a30c" />
 
+_____
+## Tổng kết so sánh ngắn gọn
+#### Caesar: 
+đơn giản nhất; khoá 26; dễ phá (brute-force).
+#### Affine: 
+dạng tuyến tính; khoá ~312; vẫn yếu (brute-force & tần suất).
+#### Hoán vị: 
+giữ tần suất; khó phá bằng tần suất 1-gram, cần heuristics/cribs; an toàn hơn so với substitution đơn khi khoá dài.
+#### Vigenère: 
+polyalphabetic; nếu khoá ngắn thì dễ phá (Kasiski + freq), nếu khoá thật ngẫu nhiên & dài → an toàn (one-time pad ý tưởng).
+#### Playfair: 
+mã hoá theo digraph → chống phân tích 1-gram tốt; nhưng có thể phá bằng n-gram heuristics nếu ciphertext dài.
